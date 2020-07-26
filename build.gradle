@@ -7,6 +7,9 @@
  */
 
 plugins {
+    // Use eclipse
+    id 'eclipse'
+
     // Apply the java plugin to add support for Java
     id 'java'
 
@@ -21,7 +24,8 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
+    // dependencies
+    compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
     implementation 'com.google.guava:guava:29.0-jre'
 
     // Use JUnit Jupiter API for testing.
