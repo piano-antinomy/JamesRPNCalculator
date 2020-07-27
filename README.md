@@ -7,4 +7,4 @@ build:
 ```./gradlew build```
 
 execute: 
-```./gradlew run```
+```./gradlew run --console=plain```
