@@ -3,12 +3,34 @@
  */
 package james.rpn.calculator.app;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
     protected void appHasAGreeting() {
         final Main classUnderTest = new Main();
+
         //assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    }
+
+    @Test
+    protected void anything() {
+        final BigDecimal number = new BigDecimal("128798879.1234567890987654321", MathContext.DECIMAL128);
+        System.out.println(number);
+
+        final BigDecimal number2 = number.setScale(15, RoundingMode.HALF_EVEN);
+
+
+        System.out.println(number.add(number2));
+        final BigDecimal number3 = BigDecimal.valueOf(StrictMath.sqrt(number2.doubleValue()));
+
+        //number2.setScale(15, RoundingMode.HALF_EVEN);
+
+        System.out.println(number3.sqrt(MathContext.DECIMAL128));
+
     }
 }

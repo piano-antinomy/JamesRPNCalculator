@@ -17,6 +17,7 @@ public class Main {
         try {
             while (true) {
                 final String inputString = scanner.nextLine();
+
                 printer.println("stack " + inputString);
             }
         } catch (final RuntimeException e) {
