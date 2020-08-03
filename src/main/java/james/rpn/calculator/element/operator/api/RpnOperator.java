@@ -28,4 +28,9 @@ public interface RpnOperator {
      * @param stack
      */
     Stack<RpnOperator> act(Stack<RpnOperator> stack);
+
+    /**
+     * returns its poistion.
+     */
+    int getPosition();
 }

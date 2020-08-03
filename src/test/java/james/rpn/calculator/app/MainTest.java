@@ -10,6 +10,7 @@ import java.math.RoundingMode;
 import org.junit.jupiter.api.Test;
 
 class MainTest {
+
     @Test
     protected void appHasAGreeting() {
         final Main classUnderTest = new Main();

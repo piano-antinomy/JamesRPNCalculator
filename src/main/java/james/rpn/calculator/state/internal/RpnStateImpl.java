@@ -3,8 +3,6 @@ package james.rpn.calculator.state.internal;
 import java.util.List;
 import java.util.Stack;
 
-import javax.inject.Inject;
-
 import james.rpn.calculator.element.operator.api.RpnOperator;
 import james.rpn.calculator.state.api.RpnState;
 
@@ -22,9 +20,10 @@ class RpnStateImpl implements RpnState {
      */
     private final Stack<Stack<RpnOperator>> states;
 
-    @Inject
-    RpnStateImpl(final Stack<Stack<RpnOperator>> states) {
-        this.states = states;
+    RpnStateImpl() {
+        states = new Stack<>();
+
+        states.add(new Stack<>());
     }
 
     @Override

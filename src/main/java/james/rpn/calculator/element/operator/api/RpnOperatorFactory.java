@@ -18,11 +18,4 @@ public interface RpnOperatorFactory {
      * @return
      */
     RpnOperator getRpnOperatorFromString(final String value);
-
-    /**
-     * checked whether provided string is a valid operator.
-     * @param value
-     * @return
-     */
-    boolean isValid(final String value);
 }
