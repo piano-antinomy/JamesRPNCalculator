@@ -21,7 +21,7 @@ import james.rpn.calculator.element.operator.api.RpnOperatorFactory;
  */
 public class RpnOperatorModule extends AbstractModule {
 
-    protected static final String INJECT_NAME = "OperatorRegistry";
+    protected static final String OPERATOR_REGISTRY = "OperatorRegistry";
 
     @Override
     protected void configure() {
@@ -31,7 +31,7 @@ public class RpnOperatorModule extends AbstractModule {
     }
 
     @Provides
-    @Named(INJECT_NAME)
+    @Named(OPERATOR_REGISTRY)
     protected Map<String, RpnOperator> provideRegistry() {
         return ImmutableMap.<String, RpnOperator>builder()
             .put("+", new AddOperator())

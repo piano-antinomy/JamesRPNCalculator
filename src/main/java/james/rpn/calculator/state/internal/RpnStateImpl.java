@@ -17,7 +17,7 @@ import james.rpn.calculator.state.api.RpnState;
  */
 class RpnStateImpl implements RpnState {
     /**
-     * states represent all states for the underlying stack.
+     * state represents all chained states of the underlying stack.
      */
     private RpnStack state;
 

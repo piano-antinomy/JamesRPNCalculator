@@ -26,7 +26,7 @@ class RpnOperatorFactoryImpl implements RpnOperatorFactory {
 
     @Inject
     RpnOperatorFactoryImpl(
-        @Named(RpnOperatorModule.INJECT_NAME)
+        @Named(RpnOperatorModule.OPERATOR_REGISTRY)
         final Map<String, RpnOperator> operatorRegistry) {
         this.operatorRegistry = operatorRegistry;
     }
