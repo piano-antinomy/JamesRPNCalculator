@@ -12,12 +12,6 @@ import james.rpn.calculator.stack.api.RpnStack;
  */
 public interface RpnOperator {
     /**
-     * get Operator Type.
-     * @return
-     */
-    RpnOperatorTypes getOperatorType();
-
-    /**
      * returns the number of elements required for its operation.
      * @return
      */

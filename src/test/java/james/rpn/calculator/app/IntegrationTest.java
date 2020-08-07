@@ -45,6 +45,48 @@ public class IntegrationTest {
     }
 
     @Test
+    protected void testSubOperation() {
+
+        // Arrange
+        final String[] input = {"5", "3", "-", "15.5", "-9.8", "+"};
+
+        // Act
+        stateTransit(input);
+
+        // Assert
+        Assertions.assertEquals(2, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 5.7]", state.getState().getStack().toString());
+    }
+
+    @Test
+    protected void testMulOperation() {
+
+        // Arrange
+        final String[] input = {"5", "3", "-", "15.5", "9.8", "*"};
+
+        // Act
+        stateTransit(input);
+
+        // Assert
+        Assertions.assertEquals(2, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 151.9]", state.getState().getStack().toString());
+    }
+
+    @Test
+    protected void testDivOperation() {
+
+        // Arrange
+        final String[] input = {"5", "3", "-", "15.5", "202", "/"};
+
+        // Act
+        stateTransit(input);
+
+        // Assert
+        Assertions.assertEquals(2, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 0.0767326733]", state.getState().getStack().toString());
+    }
+
+    @Test
     protected void testNoOperation() {
 
         // Arrange

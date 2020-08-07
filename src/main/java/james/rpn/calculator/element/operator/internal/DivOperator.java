@@ -1,21 +1,21 @@
 package james.rpn.calculator.element.operator.internal;
 
 /**
- * Add Operator.
- *
+ * Divide Operator.
  * @author James Ding
  * @email james.yingjian.ding@gmail.com
  *
- * Aug 2, 2020
+ * Aug 6, 2020
  */
-class AddOperator extends AbstractTwoParametersOperator {
+class DivOperator extends AbstractTwoParametersOperator {
 
-    AddOperator() {
-        super("+");
+    public DivOperator() {
+        super("/");
     }
 
     @Override
     public int getPosition() {
         return 0;
     }
+
 }

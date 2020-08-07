@@ -19,8 +19,8 @@ public class RpnNumber implements RpnOperator {
     /**
      * TODO: move constants to configurations.
      */
+    public static final int STORE_DECIMAL = 15;
     protected static final int DISPLAY_DECIMAL = 10;
-    protected static final int STORE_DECIMAL = 15;
 
     private final BigDecimal value;
 
@@ -55,11 +55,6 @@ public class RpnNumber implements RpnOperator {
 
         final RpnStack newRpnStack = new RpnStack(this, rpnStack, newStack);
         return newRpnStack;
-    }
-
-    @Override
-    public RpnOperatorTypes getOperatorType() {
-        return RpnOperatorTypes.Number;
     }
 
     @Override

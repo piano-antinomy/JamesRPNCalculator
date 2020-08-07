@@ -1,21 +1,22 @@
 package james.rpn.calculator.element.operator.internal;
 
 /**
- * Add Operator.
- *
+ * Multiply operator.
  * @author James Ding
  * @email james.yingjian.ding@gmail.com
  *
- * Aug 2, 2020
+ * Aug 6, 2020
  */
-class AddOperator extends AbstractTwoParametersOperator {
+class MulOperator extends AbstractTwoParametersOperator {
 
-    AddOperator() {
-        super("+");
+    MulOperator() {
+        super("*");
     }
 
     @Override
     public int getPosition() {
+        // TODO Auto-generated method stub
         return 0;
     }
+
 }

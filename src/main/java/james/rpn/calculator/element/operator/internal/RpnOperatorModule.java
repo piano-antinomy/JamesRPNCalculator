@@ -35,6 +35,9 @@ public class RpnOperatorModule extends AbstractModule {
     protected Map<String, RpnOperator> provideRegistry() {
         return ImmutableMap.<String, RpnOperator>builder()
             .put("+", new AddOperator())
+            .put("-", new SubOperator())
+            .put("*", new MulOperator())
+            .put("/", new DivOperator())
             .put("Clear", new ClearOperator())
             .build();
     }
