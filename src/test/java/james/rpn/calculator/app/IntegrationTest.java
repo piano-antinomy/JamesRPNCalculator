@@ -40,8 +40,8 @@ public class IntegrationTest {
         stateTransit(input);
 
         // Assert
-        Assertions.assertEquals(2, state.getState().size());
-        Assertions.assertEquals("[3, 5.7]", state.getState().toString());
+        Assertions.assertEquals(2, state.getState().getStack().size());
+        Assertions.assertEquals("[3, 5.7]", state.getState().getStack().toString());
     }
 
     @Test
@@ -54,8 +54,8 @@ public class IntegrationTest {
         stateTransit(input);
 
         // Assert
-        Assertions.assertEquals(6, state.getState().size());
-        Assertions.assertEquals("[1, 2, 14, 15.5, 19.8, 0]", state.getState().toString());
+        Assertions.assertEquals(6, state.getState().getStack().size());
+        Assertions.assertEquals("[1, 2, 14, 15.5, 19.8, 0]", state.getState().getStack().toString());
     }
 
     @Test
@@ -68,8 +68,8 @@ public class IntegrationTest {
         stateTransit(input);
 
         // Assert
-        Assertions.assertTrue(state.getState().isEmpty());
-        Assertions.assertEquals("[]", state.getState().toString());
+        Assertions.assertTrue(state.getState().getStack().isEmpty());
+        Assertions.assertEquals("[]", state.getState().getStack().toString());
     }
 
     @Test
@@ -82,8 +82,8 @@ public class IntegrationTest {
         stateTransit(input);
 
         // Assert
-        Assertions.assertEquals(1, state.getState().size());
-        Assertions.assertEquals("[41.123456789]", state.getState().toString());
+        Assertions.assertEquals(1, state.getState().getStack().size());
+        Assertions.assertEquals("[41.123456789]", state.getState().getStack().toString());
     }
 
     @Test

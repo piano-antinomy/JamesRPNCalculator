@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Stack;
 
+import james.rpn.calculator.stack.api.RpnStack;
+
 /**
  * represents a RPN number.
  *
@@ -45,12 +47,14 @@ public class RpnNumber implements RpnOperator {
     }
 
     @Override
-    public Stack<RpnOperator> act(final Stack<RpnOperator> stack) {
+    public RpnStack act(final RpnStack rpnStack) {
+
         @SuppressWarnings("unchecked")
-        final Stack<RpnOperator> newStack = (Stack<RpnOperator>) stack.clone();
+        final Stack<RpnOperator> newStack = (Stack<RpnOperator>) rpnStack.getStack().clone();
         newStack.push(this);
 
-        return newStack;
+        final RpnStack newRpnStack = new RpnStack(this, rpnStack, newStack);
+        return newRpnStack;
     }
 
     @Override

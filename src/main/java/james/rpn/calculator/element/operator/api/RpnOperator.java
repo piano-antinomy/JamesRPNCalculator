@@ -1,6 +1,6 @@
 package james.rpn.calculator.element.operator.api;
 
-import java.util.Stack;
+import james.rpn.calculator.stack.api.RpnStack;
 
 /**
  * represents an operator for RPN Calculation.
@@ -27,7 +27,7 @@ public interface RpnOperator {
      * acts on the provided stack and returns its result.
      * @param stack
      */
-    Stack<RpnOperator> act(Stack<RpnOperator> stack);
+    RpnStack act(RpnStack stack);
 
     /**
      * returns its poistion.

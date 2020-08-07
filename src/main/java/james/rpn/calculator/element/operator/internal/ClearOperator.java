@@ -5,6 +5,7 @@ import java.util.Stack;
 import james.rpn.calculator.element.operator.api.InsufficientParameterException;
 import james.rpn.calculator.element.operator.api.RpnOperator;
 import james.rpn.calculator.element.operator.api.RpnOperatorTypes;
+import james.rpn.calculator.stack.api.RpnStack;
 
 public class ClearOperator implements RpnOperator {
     protected static final String OPERATOR = "CELAR";
@@ -15,13 +16,13 @@ public class ClearOperator implements RpnOperator {
     }
 
     @Override
-    public Stack<RpnOperator> act(final Stack<RpnOperator> stack) {
+    public  RpnStack act(final RpnStack stack) {
 
-        if (stack.empty()) {
+        if (stack.getStack().empty()) {
             throw new InsufficientParameterException(OPERATOR, 0);
         }
 
-        return new Stack<>();
+        return new RpnStack(this, stack, new Stack<>());
     }
 
     @Override

@@ -6,6 +6,7 @@ import james.rpn.calculator.element.operator.api.InsufficientParameterException;
 import james.rpn.calculator.element.operator.api.RpnNumber;
 import james.rpn.calculator.element.operator.api.RpnOperator;
 import james.rpn.calculator.element.operator.api.RpnOperatorTypes;
+import james.rpn.calculator.stack.api.RpnStack;
 
 /**
  * Add Operator.
@@ -28,25 +29,23 @@ class AddOperator implements RpnOperator {
     }
 
     @Override
-    public Stack<RpnOperator> act(final Stack<RpnOperator> stack) {
-        if (stack.size() < getNumberOfElements()) {
+    public RpnStack act(final RpnStack rpnStack) {
+        if (rpnStack.getStack().size() < getNumberOfElements()) {
             //TODO: change this.
             throw new InsufficientParameterException("+", 0);
         }
-
-        final RpnNumber left = (RpnNumber) stack.pop();
-        final RpnNumber right = (RpnNumber) stack.pop();
-
         @SuppressWarnings("unchecked")
-        final Stack<RpnOperator> newStack = (Stack<RpnOperator>) (stack.clone());
+        final Stack<RpnOperator> newStack = (Stack<RpnOperator>) (rpnStack.getStack().clone());
+        final RpnNumber left = (RpnNumber) newStack.pop();
+        final RpnNumber right = (RpnNumber) newStack.pop();
+
         newStack.push(new RpnNumber(left.getValue().add(right.getValue())));
 
-        return newStack;
+        return new RpnStack(this, rpnStack, newStack);
     }
 
     @Override
     public int getPosition() {
         return 0;
     }
-
 }

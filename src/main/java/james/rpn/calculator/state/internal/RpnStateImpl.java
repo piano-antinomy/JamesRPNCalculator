@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 import james.rpn.calculator.element.operator.api.RpnOperator;
+import james.rpn.calculator.stack.api.RpnStack;
 import james.rpn.calculator.state.api.RpnState;
 
 /**
@@ -18,22 +19,20 @@ class RpnStateImpl implements RpnState {
     /**
      * states represent all states for the underlying stack.
      */
-    private final Stack<Stack<RpnOperator>> states;
+    private RpnStack state;
 
     RpnStateImpl() {
-        states = new Stack<>();
-
-        states.add(new Stack<>());
+        state = new RpnStack(null, null, new Stack<RpnOperator>());
     }
 
     @Override
-    public Stack<RpnOperator> getState() {
-        return states.peek();
+    public RpnStack getState() {
+        return state;
     }
 
     @Override
     public void transit(final RpnOperator operator) {
-        states.push(operator.act(getState()));
+        state = operator.act(state);
     }
 
     @Override
