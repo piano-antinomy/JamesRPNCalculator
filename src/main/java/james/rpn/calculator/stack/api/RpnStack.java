@@ -31,24 +31,27 @@ public class RpnStack {
     }
 
     /**
+     * returns current operator which drives the transition from previous to current.
      *
-     * @return
+     * @return RpnOperator
      */
     public RpnOperator getCurrentRpnOperator() {
         return currentRpnOperator;
     }
 
     /**
+     *  returns previous stack before the operator's transition.
      *
-     * @return
+     * @return RpnStack
      */
     public RpnStack getPrevious() {
         return previous;
     }
 
     /**
+     * returns the current stack.
      *
-     * @return
+     * @return Stack<RpnOperator>
      */
     public Stack<RpnOperator> getStack() {
         return stack;

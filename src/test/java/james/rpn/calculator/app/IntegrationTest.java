@@ -164,7 +164,7 @@ public class IntegrationTest {
     }
 
     @Test
-    protected void testClearOperationBeforeAdds() {
+    protected void testClearOperationBeforeOthers() {
 
         // Arrange
         final String[] input = {"1", "2", "+", "15.5", "19.8", "0", "clear", "20.123456789012", "21", "+"};
@@ -175,6 +175,13 @@ public class IntegrationTest {
         // Assert
         Assertions.assertEquals(1, state.getState().getStack().size());
         Assertions.assertEquals("[41.123456789]", state.getState().getStack().toString());
+
+     // Act
+        stateTransit("23", "+", "clear", "undo", "6", "/");
+
+        // Assert
+        Assertions.assertEquals(1, state.getState().getStack().size());
+        Assertions.assertEquals("[10.6872427981]", state.getState().getStack().toString());
     }
 
     @Test

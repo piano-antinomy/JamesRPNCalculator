@@ -15,7 +15,7 @@ public interface RpnOperatorFactory {
      * @throws InvalidOperatorException if provided value is not supported.
      *
      * @param value
-     * @return
+     * @return RpnOperator
      */
     RpnOperator getRpnOperatorFromString(final String value);
 }
