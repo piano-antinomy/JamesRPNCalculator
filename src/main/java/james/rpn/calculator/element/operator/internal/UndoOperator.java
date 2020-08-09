@@ -1,38 +1,42 @@
 package james.rpn.calculator.element.operator.internal;
 
-import java.util.Stack;
-
 import james.rpn.calculator.element.operator.api.InsufficientParameterException;
 import james.rpn.calculator.element.operator.api.RpnOperator;
 import james.rpn.calculator.stack.api.RpnStack;
 
 /**
- * clear the current stack and start from an empty one.
+ * Undos the previous operator and makes the stack to previous one.
+ *
  * @author James Ding
  * @email james.yingjian.ding@gmail.com
  *
  * Aug 9, 2020
  */
-class ClearOperator implements RpnOperator {
-    protected static final String OPERATOR = "CELAR";
+class UndoOperator implements RpnOperator {
+
+    public UndoOperator() {
+    }
 
     @Override
     public int getNumberOfElements() {
+        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public  RpnStack act(final RpnStack stack) {
+    public RpnStack act(final RpnStack stack) {
+        final RpnStack previous = stack.getPrevious();
 
-        if (stack.getStack().empty()) {
-            throw new InsufficientParameterException(OPERATOR, 0);
+        if (previous == null) {
+            throw new InsufficientParameterException("Undo", 0);
         }
 
-        return new RpnStack(this, stack, new Stack<>());
+        return previous;
     }
 
     @Override
     public int getPosition() {
+        // TODO Auto-generated method stub
         return 0;
     }
 

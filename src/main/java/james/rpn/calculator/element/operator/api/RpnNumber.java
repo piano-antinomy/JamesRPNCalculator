@@ -59,6 +59,6 @@ public class RpnNumber implements RpnOperator {
 
     @Override
     public String toString() {
-        return value.setScale(DISPLAY_DECIMAL, RoundingMode.HALF_EVEN).stripTrailingZeros().toString();
+        return value.setScale(DISPLAY_DECIMAL, RoundingMode.DOWN).stripTrailingZeros().toPlainString();
     }
 }

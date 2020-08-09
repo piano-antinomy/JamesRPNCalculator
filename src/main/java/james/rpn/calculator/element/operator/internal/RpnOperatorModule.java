@@ -38,7 +38,9 @@ public class RpnOperatorModule extends AbstractModule {
             .put("-", new SubOperator())
             .put("*", new MulOperator())
             .put("/", new DivOperator())
-            .put("Clear", new ClearOperator())
+            .put("sqrt", new SqrtOperator())
+            .put("clear", new ClearOperator())
+            .put("undo", new UndoOperator())
             .build();
     }
 

@@ -83,7 +83,56 @@ public class IntegrationTest {
 
         // Assert
         Assertions.assertEquals(2, state.getState().getStack().size());
-        Assertions.assertEquals("[2, 0.0767326733]", state.getState().getStack().toString());
+        Assertions.assertEquals("[2, 0.0767326732]", state.getState().getStack().toString());
+    }
+
+    @Test
+    protected void testUndoOperation() {
+
+        // Arrange
+        final String[] input = {"5", "3", "-", "15.5", "202"};
+
+        // Act
+        stateTransit(input);
+
+        // Assert
+        Assertions.assertEquals(3, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 15.5, 202]", state.getState().getStack().toString());
+
+        // Act 2
+        stateTransit("/");
+
+        // Assert 2
+        Assertions.assertEquals(2, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 0.0767326732]", state.getState().getStack().toString());
+
+        // Act 2
+        stateTransit("undo");
+
+        // Assert 2
+        Assertions.assertEquals(3, state.getState().getStack().size());
+        Assertions.assertEquals("[2, 15.5, 202]", state.getState().getStack().toString());
+    }
+
+    @Test
+    protected void testMultipleUndoOperations() {
+
+        // Arrange
+        final String[] input = {"5", "4", "3", "2"};
+
+        // Act
+        stateTransit(input);
+
+        // Assert
+        Assertions.assertEquals(4, state.getState().getStack().size());
+        Assertions.assertEquals("[5, 4, 3, 2]", state.getState().getStack().toString());
+
+        // Act 2
+        stateTransit("undo", "undo", "*");
+
+        // Assert 2
+        Assertions.assertEquals(1, state.getState().getStack().size());
+        Assertions.assertEquals("[20]", state.getState().getStack().toString());
     }
 
     @Test
@@ -104,7 +153,7 @@ public class IntegrationTest {
     protected void testClearOperation() {
 
         // Arrange
-        final String[] input = {"1", "2", "14", "15.5", "19.8", "0", "Clear"};
+        final String[] input = {"1", "2", "14", "15.5", "19.8", "0", "clear"};
 
         // Act
         stateTransit(input);
@@ -118,7 +167,7 @@ public class IntegrationTest {
     protected void testClearOperationBeforeAdds() {
 
         // Arrange
-        final String[] input = {"1", "2", "+", "15.5", "19.8", "0", "Clear", "20.123456789012", "21", "+"};
+        final String[] input = {"1", "2", "+", "15.5", "19.8", "0", "clear", "20.123456789012", "21", "+"};
 
         // Act
         stateTransit(input);
@@ -141,7 +190,7 @@ public class IntegrationTest {
      * state transition operations with input.
      * @param input
      */
-    private void stateTransit(final String[] input) {
+    private void stateTransit(final String... input) {
         final List<RpnOperator> operators =
             Arrays.asList(input)
                 .stream()
