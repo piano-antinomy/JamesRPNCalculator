@@ -14,15 +14,6 @@ import james.rpn.calculator.stack.api.RpnStack;
  */
 class UndoOperator implements RpnOperator {
 
-    public UndoOperator() {
-    }
-
-    @Override
-    public int getNumberOfElements() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
     @Override
     public RpnStack act(final RpnStack stack) {
         final RpnStack previous = stack.getPrevious();
@@ -32,12 +23,6 @@ class UndoOperator implements RpnOperator {
         }
 
         return previous;
-    }
-
-    @Override
-    public int getPosition() {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
 }

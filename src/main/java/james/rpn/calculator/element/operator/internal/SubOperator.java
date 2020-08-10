@@ -12,9 +12,4 @@ class SubOperator extends AbstractTwoParametersOperator {
     SubOperator() {
         super("-");
     }
-
-    @Override
-    public int getPosition() {
-        return 0;
-    }
 }

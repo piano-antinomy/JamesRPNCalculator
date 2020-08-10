@@ -14,12 +14,7 @@ import james.rpn.calculator.stack.api.RpnStack;
  * Aug 9, 2020
  */
 class ClearOperator implements RpnOperator {
-    protected static final String OPERATOR = "CELAR";
-
-    @Override
-    public int getNumberOfElements() {
-        return 0;
-    }
+    protected static final String OPERATOR = "clear";
 
     @Override
     public  RpnStack act(final RpnStack stack) {
@@ -30,10 +25,4 @@ class ClearOperator implements RpnOperator {
 
         return new RpnStack(this, stack, new Stack<>());
     }
-
-    @Override
-    public int getPosition() {
-        return 0;
-    }
-
 }

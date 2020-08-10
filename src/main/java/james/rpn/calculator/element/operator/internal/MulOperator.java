@@ -12,11 +12,4 @@ class MulOperator extends AbstractTwoParametersOperator {
     MulOperator() {
         super("*");
     }
-
-    @Override
-    public int getPosition() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
 }

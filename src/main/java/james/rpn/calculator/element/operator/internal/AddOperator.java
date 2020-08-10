@@ -13,9 +13,4 @@ class AddOperator extends AbstractTwoParametersOperator {
     AddOperator() {
         super("+");
     }
-
-    @Override
-    public int getPosition() {
-        return 0;
-    }
 }

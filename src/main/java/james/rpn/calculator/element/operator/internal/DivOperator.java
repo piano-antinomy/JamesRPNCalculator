@@ -13,9 +13,4 @@ class DivOperator extends AbstractTwoParametersOperator {
         super("/");
     }
 
-    @Override
-    public int getPosition() {
-        return 0;
-    }
-
 }

@@ -18,7 +18,7 @@ import james.rpn.calculator.stack.api.RpnStack;
  * Aug 6, 2020
  */
 abstract class AbstractTwoParametersOperator implements RpnOperator {
-
+    private final static int ELEMENTS_NUMBER = 2;
     private final String operator;
 
     AbstractTwoParametersOperator(final String operator) {
@@ -26,13 +26,8 @@ abstract class AbstractTwoParametersOperator implements RpnOperator {
     }
 
     @Override
-    public int getNumberOfElements() {
-        return 2;
-    }
-
-    @Override
     public RpnStack act(final RpnStack rpnStack) {
-        if (rpnStack.getStack().size() < getNumberOfElements()) {
+        if (rpnStack.getStack().size() < ELEMENTS_NUMBER) {
             throw new InsufficientParameterException(operator);
         }
         @SuppressWarnings("unchecked")

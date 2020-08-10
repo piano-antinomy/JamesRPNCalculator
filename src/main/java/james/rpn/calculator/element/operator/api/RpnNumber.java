@@ -36,17 +36,6 @@ public class RpnNumber implements RpnOperator {
     }
 
     @Override
-    public int getNumberOfElements() {
-        throw new IllegalStateException("should not be invoked");
-    }
-
-    @Override
-    public int getPosition() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
     public RpnStack act(final RpnStack rpnStack) {
 
         @SuppressWarnings("unchecked")

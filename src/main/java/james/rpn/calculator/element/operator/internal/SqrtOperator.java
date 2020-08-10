@@ -16,18 +16,11 @@ import james.rpn.calculator.stack.api.RpnStack;
  * Aug 9, 2020
  */
 class SqrtOperator implements RpnOperator {
-
-    public SqrtOperator() {
-    }
-
-    @Override
-    public int getNumberOfElements() {
-        return 1;
-    }
+    private final static int ELEMENTS_NUMBER = 1;
 
     @Override
     public RpnStack act(final RpnStack rpnStack) {
-        if (rpnStack.getStack().size() < getNumberOfElements()) {
+        if (rpnStack.getStack().size() < ELEMENTS_NUMBER) {
             throw new InsufficientParameterException("Sqrt");
         }
         @SuppressWarnings("unchecked")
@@ -40,10 +33,5 @@ class SqrtOperator implements RpnOperator {
         return new RpnStack(this, rpnStack, newStack);
     }
 
-    @Override
-    public int getPosition() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 
 }
