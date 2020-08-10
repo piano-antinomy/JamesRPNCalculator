@@ -1,25 +1,25 @@
-package james.rpn.calculator.state.internal;
+package james.rpn.calculator.statemachine.internal;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 
-import james.rpn.calculator.element.operator.internal.RpnOperatorModule;
-import james.rpn.calculator.state.api.RpnState;
+import james.rpn.calculator.state.internal.RpnStateModule;
+import james.rpn.calculator.statemachine.api.RpnStateMachine;
 
 /**
- * State module to inject all dependencies.
+ * Inject all state machines dependencies.
  * @author James Ding
  * @email james.yingjian.ding@gmail.com
  *
- * Aug 2, 2020
+ * Aug 9, 2020
  */
-public class RpnStateModule extends AbstractModule {
+public class RpnStateMachineModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(RpnState.class).to(RpnStateImpl.class).in(Scopes.SINGLETON);
+        bind(RpnStateMachine.class).to(RpnStateMachineImpl.class).in(Scopes.SINGLETON);
 
-        install(new RpnOperatorModule());
+        install(new RpnStateModule());
     }
 
     @Override

@@ -17,12 +17,26 @@ public class InsufficientParameterException extends IllegalArgumentException {
     private final String operatorName;
     private final int operatorPosition;
 
+    /**
+     * For state machine who knows the operator position.
+     * @param operatorName
+     * @param operatorPosition
+     */
     public InsufficientParameterException(final String operatorName, final int operatorPosition) {
         super();
         this.operatorName = operatorName;
         this.operatorPosition = operatorPosition;
     }
 
+    /**
+     * for operator who does not know the parameter position.
+     * @param operatorName
+     */
+    public InsufficientParameterException(final String operatorName) {
+        super();
+        this.operatorName = operatorName;
+        operatorPosition = -1;
+    }
 
     public String getOperatorName() {
         return operatorName;

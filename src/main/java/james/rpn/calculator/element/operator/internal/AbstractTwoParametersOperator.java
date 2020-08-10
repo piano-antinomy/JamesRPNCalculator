@@ -33,8 +33,7 @@ abstract class AbstractTwoParametersOperator implements RpnOperator {
     @Override
     public RpnStack act(final RpnStack rpnStack) {
         if (rpnStack.getStack().size() < getNumberOfElements()) {
-            //TODO: change this.
-            throw new InsufficientParameterException(operator, 0);
+            throw new InsufficientParameterException(operator);
         }
         @SuppressWarnings("unchecked")
         final Stack<RpnOperator> newStack = (Stack<RpnOperator>) (rpnStack.getStack().clone());

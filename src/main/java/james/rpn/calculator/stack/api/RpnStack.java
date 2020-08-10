@@ -1,5 +1,6 @@
 package james.rpn.calculator.stack.api;
 
+import java.util.Iterator;
 import java.util.Stack;
 
 import james.rpn.calculator.element.operator.api.RpnOperator;
@@ -55,5 +56,19 @@ public class RpnStack {
      */
     public Stack<RpnOperator> getStack() {
         return stack;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        final Iterator<RpnOperator> iterator = stack.iterator();
+
+        while(iterator.hasNext()) {
+            stringBuilder.append(iterator.next().toString());
+            stringBuilder.append(" ");
+        }
+
+        return stringBuilder.toString().trim();
     }
 }

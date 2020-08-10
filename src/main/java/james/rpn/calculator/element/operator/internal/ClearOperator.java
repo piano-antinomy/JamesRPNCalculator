@@ -25,7 +25,7 @@ class ClearOperator implements RpnOperator {
     public  RpnStack act(final RpnStack stack) {
 
         if (stack.getStack().empty()) {
-            throw new InsufficientParameterException(OPERATOR, 0);
+            throw new InsufficientParameterException(OPERATOR);
         }
 
         return new RpnStack(this, stack, new Stack<>());

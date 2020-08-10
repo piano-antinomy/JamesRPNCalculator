@@ -44,4 +44,13 @@ public class RpnOperatorModule extends AbstractModule {
             .build();
     }
 
+    @Override
+    public int hashCode() {
+        return this.getClass().hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object that) {
+        return (that != null) && this.getClass().equals(that.getClass());
+    }
 }

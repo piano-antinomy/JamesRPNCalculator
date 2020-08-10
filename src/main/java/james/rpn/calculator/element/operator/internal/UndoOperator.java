@@ -28,7 +28,7 @@ class UndoOperator implements RpnOperator {
         final RpnStack previous = stack.getPrevious();
 
         if (previous == null) {
-            throw new InsufficientParameterException("Undo", 0);
+            throw new InsufficientParameterException("Undo");
         }
 
         return previous;
