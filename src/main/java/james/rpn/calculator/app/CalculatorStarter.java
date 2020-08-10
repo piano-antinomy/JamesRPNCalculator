@@ -48,7 +48,7 @@ class CalculatorStarter {
                     rpnStateMachine.apply(inputString);
                 } catch (final InsufficientParameterException e) {
                     final String errorString = String.format(
-                        "operator %s (position: %d): insucient parameters",
+                        "operator %s (position: %d): insufficient parameters",
                         e.getOperatorName(), e.getOperatorPosition());
 
                     printer.println(errorString);

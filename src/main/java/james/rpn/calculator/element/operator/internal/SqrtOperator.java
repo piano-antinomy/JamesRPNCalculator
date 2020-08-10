@@ -21,7 +21,7 @@ class SqrtOperator implements RpnOperator {
     @Override
     public RpnStack act(final RpnStack rpnStack) {
         if (rpnStack.getStack().size() < ELEMENTS_NUMBER) {
-            throw new InsufficientParameterException("Sqrt");
+            throw new InsufficientParameterException("sqrt");
         }
         @SuppressWarnings("unchecked")
         final Stack<RpnOperator> newStack = (Stack<RpnOperator>) (rpnStack.getStack().clone());
@@ -32,6 +32,4 @@ class SqrtOperator implements RpnOperator {
 
         return new RpnStack(this, rpnStack, newStack);
     }
-
-
 }

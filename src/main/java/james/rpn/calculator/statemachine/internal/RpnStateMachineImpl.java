@@ -35,6 +35,11 @@ class RpnStateMachineImpl implements RpnStateMachine {
         int wordBegin = 0;
         int wordEnd = -1;
         boolean previousSpace = false;
+
+        /**
+         * We could use string.split(" ") but we would lose position information.
+         * Applies this for loop for accurate position tracking.
+         */
         for (int i = 0; i < manipulatedInputString.length(); i++) {
             if (' ' == manipulatedInputString.charAt(i)) {
                 if (previousSpace) {
@@ -50,7 +55,7 @@ class RpnStateMachineImpl implements RpnStateMachine {
                             state.transit(operator);
                         } catch (final InsufficientParameterException e) {
                             // re-throw this exception with its position
-                            // wordBegin + 1 since provided example 8 uses 1 based index.
+                            // wordBegin + 1 since provided example 8 uses 1-based index.
                             throw new InsufficientParameterException(e.getOperatorName(), wordBegin + 1);
                         }
                     }

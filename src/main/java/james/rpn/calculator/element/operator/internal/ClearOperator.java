@@ -14,13 +14,12 @@ import james.rpn.calculator.stack.api.RpnStack;
  * Aug 9, 2020
  */
 class ClearOperator implements RpnOperator {
-    protected static final String OPERATOR = "clear";
 
     @Override
     public  RpnStack act(final RpnStack stack) {
 
         if (stack.getStack().empty()) {
-            throw new InsufficientParameterException(OPERATOR);
+            throw new InsufficientParameterException("clear");
         }
 
         return new RpnStack(this, stack, new Stack<>());
