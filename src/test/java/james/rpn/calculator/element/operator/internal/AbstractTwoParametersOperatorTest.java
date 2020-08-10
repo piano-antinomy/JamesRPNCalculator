@@ -14,20 +14,17 @@ import james.rpn.calculator.stack.api.RpnStack;
 public abstract class AbstractTwoParametersOperatorTest {
 
     final RpnOperator target;
-    final String[] opertaionNumbers;
 
-    AbstractTwoParametersOperatorTest(final RpnOperator target, final String... opertaionNumbers) {
+    AbstractTwoParametersOperatorTest(final RpnOperator target) {
         this.target = target;
-        this.opertaionNumbers = opertaionNumbers;
     }
 
-    @Test
-    protected void test_operation() {
+    protected void test_Operation(final String left, final String right, final String resultNumber) {
 
         // Arrange
         final Stack<RpnOperator> stack = new Stack<>();
-        stack.push(new RpnNumber(new BigDecimal(opertaionNumbers[0])));
-        stack.push(new RpnNumber(new BigDecimal(opertaionNumbers[1])));
+        stack.push(new RpnNumber(new BigDecimal(left)));
+        stack.push(new RpnNumber(new BigDecimal(right)));
 
         final RpnStack initialStack = new RpnStack(new RpnNumber(new BigDecimal("2")), null, stack);
 
@@ -35,7 +32,7 @@ public abstract class AbstractTwoParametersOperatorTest {
         final RpnStack result = target.act(initialStack);
 
         // Assert
-        Assertions.assertEquals(opertaionNumbers[2], result.toString());
+        Assertions.assertEquals(resultNumber, result.toString());
     }
 
     @Test
