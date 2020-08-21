@@ -17,7 +17,7 @@ class AddOperator extends AbstractTwoParametersOperator {
     }
 
     @Override
-    protected RpnNumber calculate(final RpnNumber right, final RpnNumber left) {
+    protected RpnNumber calculate(final RpnNumber left, final RpnNumber right) {
         return new RpnNumber(left.getValue().add(right.getValue()));
     }
 }
