@@ -1,6 +1,5 @@
 package james.rpn.calculator.state.internal;
 
-import java.util.List;
 import java.util.Stack;
 
 import james.rpn.calculator.element.operator.api.RpnOperator;
@@ -34,10 +33,4 @@ class RpnStateImpl implements RpnState {
     public void transit(final RpnOperator operator) {
         state = operator.act(state);
     }
-
-    @Override
-    public void transit(final List<RpnOperator> operators) {
-        operators.forEach(this::transit);
-    }
-
 }

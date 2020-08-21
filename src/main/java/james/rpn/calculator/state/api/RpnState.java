@@ -1,7 +1,5 @@
 package james.rpn.calculator.state.api;
 
-import java.util.List;
-
 import james.rpn.calculator.element.operator.api.RpnOperator;
 import james.rpn.calculator.stack.api.RpnStack;
 
@@ -25,10 +23,4 @@ public interface RpnState {
      * @param operator
      */
     void transit(RpnOperator operator);
-
-    /**
-     * transit to next State after operation provided by operators.
-     * @param operators
-     */
-    void transit(List<RpnOperator> operators);
 }
