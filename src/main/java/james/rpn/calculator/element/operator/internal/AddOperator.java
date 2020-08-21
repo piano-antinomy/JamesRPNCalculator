@@ -1,5 +1,7 @@
 package james.rpn.calculator.element.operator.internal;
 
+import james.rpn.calculator.element.operator.api.RpnNumber;
+
 /**
  * Add Operator.
  *
@@ -12,5 +14,10 @@ class AddOperator extends AbstractTwoParametersOperator {
 
     AddOperator() {
         super("+");
+    }
+
+    @Override
+    protected RpnNumber calculate(final RpnNumber right, final RpnNumber left) {
+        return new RpnNumber(left.getValue().add(right.getValue()));
     }
 }
